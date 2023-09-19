@@ -1,0 +1,35 @@
+# kivymd version 1.1.1
+# Home-page: https://github.com/kivymd/KivyMD  
+# kivy version 2.2.1
+# Home-page: http://kivy.org
+
+#: set name ""
+
+<Demo>:
+	orientation: "vertical"
+	md_bg_color: (1, 0.5, 0.5, 1)
+	spacing: "10dp"
+	padding: ["45dp", "180dp", "45dp", "180dp"]
+
+	MDTextField:
+		id: entry
+		multiline: False
+		hint_text: "Enter Your Name"
+		mode: "rectangle"
+
+		line_color_normal: (0, 0, 0, 1)
+		text_color_focus: (0, 0, 0, 1)
+		line_color_focus: app.theme_cls.bg_light
+
+		pos_hint: {"center_x": 0.5}
+
+	MDRaisedButton:
+		text: "Submit"
+		size_hint_x: 1
+		pos_hint: {"center_x": 0.5}
+		on_press: display_name.text = "Hi " + entry.text + "!"
+
+	MDLabel:
+		id: display_name
+		size_hint: 1, 0.2
+		halign: "center"
